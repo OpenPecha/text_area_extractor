@@ -42,7 +42,7 @@ def parse_text_area_coordinate(xml):
 
     for region in text_regions:
         # check if 'custom' attribute contains 'marginalia'
-        if 'marginalia' not in region['custom']:
+        if region['custom'] == 'readingOrder {index:0;}':
             coords = region.coords['points']
             # The coords string is in the form "x1,y1 x2,y2 x3,y3 x4,y4 ...". Split this into a list of (x, y) tuples.
             coords = [tuple(map(float, point.split(','))) for point in coords.split()]
